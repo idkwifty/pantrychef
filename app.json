@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "PantryChef",
+    "slug": "idkwifty",
+    "scheme": "pantrychef",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1F3D2B"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.pantrychef",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Нужна камера, чтобы сфотографировать холодильник и распознать продукты.",
+        "NSPhotoLibraryUsageDescription": "Нужен доступ к фото, чтобы выбрать снимок холодильника."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1F3D2B"
+      },
+      "package": "app.pantrychef",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Нужен доступ к фото, чтобы выбрать снимок холодильника.",
+          "cameraPermission": "Нужна камера, чтобы сфотографировать холодильник."
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2d7618a9-ba81-484d-9a41-c0ed1e5832b6"
+      }
+    },
+    "owner": "idkwiiftys-team"
+  }
+}

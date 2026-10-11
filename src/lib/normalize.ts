@@ -1,0 +1,155 @@
+export const ALIASES: Record<string, string> = {
+  яйцо: "egg",
+  яйца: "egg",
+  яиц: "egg",
+  egg: "egg",
+  eggs: "egg",
+  молоко: "milk",
+  молочко: "milk",
+  milk: "milk",
+  сыр: "cheese",
+  cheese: "cheese",
+  творог: "cottage cheese",
+  масло: "butter",
+  сливочное: "butter",
+  butter: "butter",
+  сметана: "sour cream",
+  йогурт: "yogurt",
+  yogurt: "yogurt",
+  курица: "chicken",
+  куриная: "chicken",
+  куриное: "chicken",
+  chicken: "chicken",
+  говядина: "beef",
+  beef: "beef",
+  свинина: "pork",
+  pork: "pork",
+  фарш: "minced meat",
+  рыба: "fish",
+  fish: "fish",
+  лосось: "salmon",
+  salmon: "salmon",
+  тунец: "tuna",
+  tuna: "tuna",
+  креветки: "shrimp",
+  shrimp: "shrimp",
+  рис: "rice",
+  rice: "rice",
+  паста: "pasta",
+  макароны: "pasta",
+  spaghetti: "pasta",
+  pasta: "pasta",
+  гречка: "buckwheat",
+  овсянка: "oats",
+  oats: "oats",
+  мука: "flour",
+  flour: "flour",
+  хлеб: "bread",
+  bread: "bread",
+  картофель: "potato",
+  картошка: "potato",
+  potato: "potato",
+  potatoes: "potato",
+  морковь: "carrot",
+  carrot: "carrot",
+  лук: "onion",
+  onion: "onion",
+  чеснок: "garlic",
+  garlic: "garlic",
+  помидор: "tomato",
+  помидоры: "tomato",
+  tomato: "tomato",
+  огурец: "cucumber",
+  cucumber: "cucumber",
+  перец: "pepper",
+  болгарский: "bell pepper",
+  pepper: "pepper",
+  капуста: "cabbage",
+  broccoli: "broccoli",
+  брокколи: "broccoli",
+  шпинат: "spinach",
+  spinach: "spinach",
+  грибы: "mushroom",
+  mushroom: "mushroom",
+  mushrooms: "mushroom",
+  яблоко: "apple",
+  apple: "apple",
+  банан: "banana",
+  banana: "banana",
+  лимон: "lemon",
+  lemon: "lemon",
+  апельсин: "orange",
+  orange: "orange",
+  ягоды: "berries",
+  клубника: "strawberry",
+  маслорастительное: "oil",
+  маслооливковое: "olive oil",
+  "оливковое масло": "olive oil",
+  oil: "oil",
+  соль: "salt",
+  salt: "salt",
+  сахар: "sugar",
+  sugar: "sugar",
+  перецчерный: "black pepper",
+  соевый: "soy sauce",
+  "соевый соус": "soy sauce",
+  томатная: "tomato paste",
+  "томатная паста": "tomato paste",
+  фасоль: "beans",
+  beans: "beans",
+  нут: "chickpeas",
+  chickpeas: "chickpeas",
+  чечевица: "lentils",
+  lentils: "lentils",
+  арахис: "peanut",
+  peanut: "peanut",
+  орехи: "nuts",
+  nuts: "nuts",
+  кунжут: "sesame",
+  sesame: "sesame",
+  соя: "soy",
+  soy: "soy",
+  тофу: "tofu",
+  tofu: "tofu",
+  глютен: "gluten",
+  gluten: "gluten",
+  лактоза: "milk",
+  свининазапрет: "pork",
+};
+
+export const ALLERGEN_CANONICAL: Record<string, string[]> = {
+  milk: ["milk", "cheese", "butter", "yogurt", "sour cream", "cottage cheese", "cream"],
+  eggs: ["egg"],
+  gluten: ["flour", "bread", "pasta", "oats"],
+  peanuts: ["peanut"],
+  "tree-nuts": ["nuts"],
+  soy: ["soy", "soy sauce", "tofu"],
+  fish: ["fish", "salmon", "tuna"],
+  shellfish: ["shrimp"],
+  sesame: ["sesame"],
+};
+
+export const MEAT = ["chicken", "beef", "pork", "minced meat"];
+export const FISH = ["fish", "salmon", "tuna"];
+export const ANIMAL = [...MEAT, ...FISH, "egg", "milk", "cheese", "butter", "yogurt", "sour cream", "cottage cheese", "shrimp"];
+export const HIGH_CARB = ["rice", "pasta", "flour", "bread", "potato", "sugar", "oats"];
+
+export function canonicalName(raw: string): string {
+  const key = raw
+    .toLowerCase()
+    .replace(/ё/g, "е")
+    .replace(/[^a-zа-я0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!key) return "";
+  if (ALIASES[key]) return ALIASES[key];
+  const words = key.split(" ");
+  for (const w of words) {
+    if (ALIASES[w]) return ALIASES[w];
+  }
+  return key;
+}
+
+export function displayName(canonical: string, original?: string): string {
+  return original?.trim() || canonical;
+}
