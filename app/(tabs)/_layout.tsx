@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import { Text } from "react-native";
+import { useTranslation } from "react-i18next";
 import { colors } from "../../src/theme";
 
 function TabIcon({ emoji }: { emoji: string }) {
@@ -7,6 +8,8 @@ function TabIcon({ emoji }: { emoji: string }) {
 }
 
 export default function TabsLayout() {
+  const { t } = useTranslation();
+
   return (
     <Tabs
       screenOptions={{
@@ -20,19 +23,19 @@ export default function TabsLayout() {
     >
       <Tabs.Screen
         name="index"
-        options={{ title: "Продукты", tabBarIcon: () => <TabIcon emoji="🥬" /> }}
+        options={{ title: t("tabs.products"), tabBarIcon: () => <TabIcon emoji="🥬" /> }}
       />
       <Tabs.Screen
         name="recipes"
-        options={{ title: "Блюда", tabBarIcon: () => <TabIcon emoji="🍳" /> }}
+        options={{ title: t("tabs.recipes"), tabBarIcon: () => <TabIcon emoji="🍳" /> }}
       />
       <Tabs.Screen
         name="scan"
-        options={{ title: "Скан", tabBarIcon: () => <TabIcon emoji="📷" /> }}
+        options={{ title: t("tabs.scan"), tabBarIcon: () => <TabIcon emoji="📷" /> }}
       />
       <Tabs.Screen
         name="settings"
-        options={{ title: "Настройки", tabBarIcon: () => <TabIcon emoji="⚙️" /> }}
+        options={{ title: t("tabs.settings"), tabBarIcon: () => <TabIcon emoji="⚙️" /> }}
       />
     </Tabs>
   );

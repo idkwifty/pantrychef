@@ -9,12 +9,14 @@ import {
   Text,
   View,
 } from "react-native";
+import { useTranslation } from "react-i18next";
 import { PrimaryButton, Screen, Subtitle, Title } from "../../src/components/ui";
 import { scoreRecipes, searchAllProviders } from "../../src/providers";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";
 
 export default function RecipesScreen() {
+  const { t } = useTranslation();
   const pantry = useAppStore((s) => s.pantry);
   const preferences = useAppStore((s) => s.preferences);
   const providers = useAppStore((s) => s.providers);
@@ -38,19 +40,15 @@ export default function RecipesScreen() {
 
   return (
     <Screen>
-      <Title>Блюда под вас</Title>
-      <Subtitle>
-        Учитываем аллергии, рацион и то, что лежит в холодильнике. Источники: встроенные рецепты + любые включённые API.
-      </Subtitle>
+      <Title>{t("recipes.title")}</Title>
+      <Subtitle>{t("recipes.subtitle")}</Subtitle>
       <View style={{ height: space.md }} />
       <PrimaryButton
-        label={loading ? "Ищем..." : "Обновить подборку"}
+        label={loading ? t("recipes.searching") : t("recipes.refresh")}
         onPress={runSearch}
         disabled={loading || pantry.length === 0}
       />
-      {pantry.length === 0 && (
-        <Text style={styles.warn}>Сначала добавьте продукты на вкладке «Продукты».</Text>
-      )}
+      {pantry.length === 0 && <Text style={styles.warn}>{t("recipes.addFirst")}</Text>}
       {lastErrors.map((err) => (
         <Text key={err} style={styles.warn}>
           {err}
@@ -68,17 +66,22 @@ export default function RecipesScreen() {
             <View style={{ flex: 1 }}>
               <Text style={styles.title}>{recipe.title}</Text>
               <Text style={styles.meta}>
-                {recipe.provider} · совпало {recipe.matched.length}
-                {recipe.missing.length ? ` · не хватает ${recipe.missing.length}` : " · можно готовить"}
+                {t(`providers.${recipe.provider}`, { defaultValue: recipe.provider })} ·{" "}
+                {t("recipes.matched", { n: recipe.matched.length })}
+                {recipe.missing.length
+                  ? ` · ${t("recipes.missingCount", { n: recipe.missing.length })}`
+                  : ` · ${t("recipes.canCook")}`}
               </Text>
               {recipe.missing.length > 0 && recipe.missing.length <= 4 && (
-                <Text style={styles.missing}>Ещё: {recipe.missing.join(", ")}</Text>
+                <Text style={styles.missing}>
+                  {t("recipes.missingList", { list: recipe.missing.join(", ") })}
+                </Text>
               )}
             </View>
           </Pressable>
         ))}
         {!loading && lastResults.length === 0 && pantry.length > 0 && (
-          <Text style={styles.empty}>Нажмите «Обновить подборку», чтобы найти блюда.</Text>
+          <Text style={styles.empty}>{t("recipes.empty")}</Text>
         )}
       </ScrollView>
     </Screen>

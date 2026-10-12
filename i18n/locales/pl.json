@@ -1,10 +1,36 @@
 {
   "tabs": {
-    "home": "Start",
-    "recipes": "Przepisy",
-    "scan": "Skan",
-    "settings": "Ustawienia"
-  },
+  "products": "Produkty",
+  "recipes": "Dania",
+  "scan": "Skan",
+  "settings": "Ustawienia"
+},
+  "recipes": {
+  "title": "Dania dla Ciebie",
+  "subtitle": "Uwzględniamy alergie, dietę i to, co masz w lodówce. Źródła: wbudowane przepisy + dowolne włączone API.",
+  "refresh": "Odśwież propozycje",
+  "searching": "Szukamy...",
+  "addFirst": "Najpierw dodaj produkty w zakładce „Produkty”.",
+  "matched": "pasuje {{n}}",
+  "missingCount": "brakuje {{n}}",
+  "canCook": "można gotować",
+  "missingList": "Jeszcze: {{list}}",
+  "empty": "Naciśnij „Odśwież propozycje”, aby znaleźć dania."
+    },
+  "products": {
+  "title": "Co masz w domu?",
+  "subtitle": "Wpisz produkty, a dobierzemy dania. Zdjęcie lodówki połączy się na karcie „Skan”.",
+  "placeholder": "Na przykład: jajka, ryż, cebula",
+  "add": "Dodaj",
+  "common": "Często wybierane:",
+  "inFridge": "W lodówce: {{n}}",
+  "clear": "Wyczyść",
+  "find": "Dobierz dania",
+  "items": {
+    "eggs": "jajka", "milk": "mleko", "chicken": "kurczak", "rice": "ryż", "potatoes": "ziemniaki",
+    "onion": "cebula", "tomatoes": "pomidory", "cheese": "ser", "pasta": "makaron", "garlic": "czosnek"
+  }
+    },
   "providers": { "local":"Wbudowane przepisy" 
 },
 "block": {

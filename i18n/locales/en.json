@@ -1,9 +1,35 @@
 {
   "tabs": {
-    "home": "Home",
-    "recipes": "Recipes",
-    "scan": "Scan",
-    "settings": "Settings"
+  "products": "Products",
+  "recipes": "Dishes",
+  "scan": "Scan",
+  "settings": "Settings"
+  },
+  "recipes": {
+  "title": "Dishes for you",
+  "subtitle": "We take allergies, diet and what's in your fridge into account. Sources: built-in recipes + any enabled APIs.",
+  "refresh": "Refresh suggestions",
+  "searching": "Searching...",
+  "addFirst": "First add ingredients on the “Products” tab.",
+  "matched": "{{n}} matched",
+  "missingCount": "{{n}} missing",
+  "canCook": "ready to cook",
+  "missingList": "Also needed: {{list}}",
+  "empty": "Tap “Refresh suggestions” to find dishes."
+  },
+  "products": {
+  "title": "What's at home?",
+  "subtitle": "Type in your ingredients and we'll suggest dishes. Fridge photo recognition connects on the “Scan” tab.",
+  "placeholder": "For example: eggs, rice, onion",
+  "add": "Add",
+  "common": "Commonly picked:",
+  "inFridge": "In the fridge: {{n}}",
+  "clear": "Clear",
+  "find": "Find dishes",
+  "items": {
+    "eggs": "eggs", "milk": "milk", "chicken": "chicken", "rice": "rice", "potatoes": "potatoes",
+    "onion": "onion", "tomatoes": "tomatoes", "cheese": "cheese", "pasta": "pasta", "garlic": "garlic"
+  }
   },
   "providers": {
     "local": "Built-in recipes" 

@@ -1,10 +1,36 @@
 {
   "tabs": {
-    "home": "Start",
-    "recipes": "Rezepte",
-    "scan": "Scan",
-    "settings": "Einstellungen"
+  "products": "Produkte",
+  "recipes": "Gerichte",
+  "scan": "Scan",
+  "settings": "Einstellungen"
   },
+  "recipes": {
+  "title": "Gerichte für dich",
+  "subtitle": "Wir berücksichtigen Allergien, Ernährung und das, was im Kühlschrank liegt. Quellen: integrierte Rezepte + beliebige aktivierte APIs.",
+  "refresh": "Vorschläge aktualisieren",
+  "searching": "Suche läuft...",
+  "addFirst": "Füge zuerst Zutaten im Tab „Produkte“ hinzu.",
+  "matched": "{{n}} passend",
+  "missingCount": "{{n}} fehlen",
+  "canCook": "kann gekocht werden",
+  "missingList": "Außerdem: {{list}}",
+  "empty": "Tippe auf „Vorschläge aktualisieren“, um Gerichte zu finden."
+  },
+  "products": {
+  "title": "Was hast du zu Hause?",
+  "subtitle": "Gib deine Zutaten ein, wir schlagen passende Gerichte vor. Die Kühlschrankfoto-Erkennung findest du im Tab „Scan“.",
+  "placeholder": "Zum Beispiel: Eier, Reis, Zwiebel",
+  "add": "Hinzufügen",
+  "common": "Oft gewählt:",
+  "inFridge": "Im Kühlschrank: {{n}}",
+  "clear": "Leeren",
+  "find": "Gerichte finden",
+  "items": {
+    "eggs": "Eier", "milk": "Milch", "chicken": "Hähnchen", "rice": "Reis", "potatoes": "Kartoffeln",
+    "onion": "Zwiebel", "tomatoes": "Tomaten", "cheese": "Käse", "pasta": "Nudeln", "garlic": "Knoblauch"
+  }
+    },
   "providers": { "local": "Integrierte Rezepte" 
   },
   "block": {
