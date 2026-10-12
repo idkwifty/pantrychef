@@ -19,10 +19,10 @@
   "back": "Back",
   "next": "Next",
   "toProducts": "To products",
-  "allergies": { "milk": "Milk", "eggs": "Eggs", "peanuts": "Peanuts", "nuts": "Tree nuts", "gluten": "Gluten", "soy": "Soy", "fish": "Fish", "shellfish": "Shellfish", "sesame": "Sesame" },
-  "diets": { "omnivore": "I eat everything", "vegetarian": "Vegetarian", "vegan": "Vegan", "pescatarian": "Pescatarian", "keto": "Keto", "halal": "Halal" },
-  "dietHints": { "omnivore": "No restrictions", "vegetarian": "No meat or fish", "vegan": "No animal products", "pescatarian": "Fish is fine, no meat", "keto": "Low carb", "halal": "No pork" },
-  "spice": { "none": "Not spicy", "mild": "A little", "medium": "Medium", "hot": "Hot" }
+  "allergies": { "milk": "Milk / lactose", "eggs": "Eggs", "gluten": "Gluten", "peanuts": "Peanuts", "tree-nuts": "Tree nuts", "soy": "Soy", "fish": "Fish", "shellfish": "Shellfish", "sesame": "Sesame" },
+  "diets": { "none": "No restrictions", "vegetarian": "Vegetarian", "vegan": "Vegan", "pescatarian": "Pescatarian", "keto": "Keto", "halal": "Halal" },
+  "dietHints": { "none": "I eat almost everything", "vegetarian": "No meat or fish", "vegan": "No animal products", "pescatarian": "Fish is fine, no meat", "keto": "Low carb", "halal": "No pork or alcohol" },
+  "cuisines": { "домашняя": "Home-style", "итальянская": "Italian", "азиатская": "Asian", "средиземноморская": "Mediterranean", "мексиканская": "Mexican", "восточная": "Middle Eastern", "американская": "American", "французская": "French" }
   },
   "tabs": {
   "products": "Products",

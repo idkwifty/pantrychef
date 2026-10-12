@@ -74,9 +74,9 @@ export default function SettingsScreen() {
         <Text style={styles.section}>{t("settings.profile")}</Text>
         <Text style={styles.body}>
           {t("settings.profileSummary", {
-            diet: preferences.diet,
+            diet: t(`onboarding.diets.${preferences.diet}`),
             allergies: preferences.allergies.length || t("settings.none"),
-            spice: preferences.spice,
+            spice: t(`onboarding.spice.${preferences.spice}`),
           })}
         </Text>
         <GhostButton

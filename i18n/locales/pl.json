@@ -19,10 +19,10 @@
   "back": "Wstecz",
   "next": "Dalej",
   "toProducts": "Do produktów",
-  "allergies": { "milk": "Mleko", "eggs": "Jajka", "peanuts": "Orzeszki ziemne", "nuts": "Orzechy", "gluten": "Gluten", "soy": "Soja", "fish": "Ryby", "shellfish": "Owoce morza", "sesame": "Sezam" },
-  "diets": { "omnivore": "Jem wszystko", "vegetarian": "Wegetariańska", "vegan": "Wegańska", "pescatarian": "Peskatariańska", "keto": "Keto", "halal": "Halal" },
-  "dietHints": { "omnivore": "Bez ograniczeń", "vegetarian": "Bez mięsa i ryb", "vegan": "Bez produktów zwierzęcych", "pescatarian": "Ryby tak, mięso nie", "keto": "Mało węglowodanów", "halal": "Bez wieprzowiny" },
-  "spice": { "none": "Nieostre", "mild": "Odrobinę", "medium": "Średnio", "hot": "Ostro" }
+  "allergies": { "milk": "Mleko / laktoza", "eggs": "Jajka", "gluten": "Gluten", "peanuts": "Orzeszki ziemne", "tree-nuts": "Orzechy", "soy": "Soja", "fish": "Ryby", "shellfish": "Owoce morza", "sesame": "Sezam" },
+  "diets": { "none": "Bez ograniczeń", "vegetarian": "Wegetarianizm", "vegan": "Weganizm", "pescatarian": "Peskatarianizm", "keto": "Keto", "halal": "Halal" },
+  "dietHints": { "none": "Jem prawie wszystko", "vegetarian": "Bez mięsa i ryb", "vegan": "Bez produktów zwierzęcych", "pescatarian": "Ryby tak, mięso nie", "keto": "Mało węglowodanów", "halal": "Bez wieprzowiny i alkoholu" },
+  "cuisines": { "домашняя": "Domowa", "итальянская": "Włoska", "азиатская": "Azjatycka", "средиземноморская": "Śródziemnomorska", "мексиканская": "Meksykańska", "восточная": "Wschodnia", "американская": "Amerykańska", "французская": "Francuska" }
     },
   "tabs": {
   "products": "Produkty",
