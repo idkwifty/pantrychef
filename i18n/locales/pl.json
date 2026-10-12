@@ -22,6 +22,7 @@
   "allergies": { "milk": "Mleko / laktoza", "eggs": "Jajka", "gluten": "Gluten", "peanuts": "Orzeszki ziemne", "tree-nuts": "Orzechy", "soy": "Soja", "fish": "Ryby", "shellfish": "Owoce morza", "sesame": "Sezam" },
   "diets": { "none": "Bez ograniczeń", "vegetarian": "Wegetarianizm", "vegan": "Weganizm", "pescatarian": "Peskatarianizm", "keto": "Keto", "halal": "Halal" },
   "dietHints": { "none": "Jem prawie wszystko", "vegetarian": "Bez mięsa i ryb", "vegan": "Bez produktów zwierzęcych", "pescatarian": "Ryby tak, mięso nie", "keto": "Mało węglowodanów", "halal": "Bez wieprzowiny i alkoholu" },
+  "spice": { "none": "Nieostre", "mild": "Odrobinę", "medium": "Średnio", "hot": "Ostro" },
   "cuisines": { "домашняя": "Domowa", "итальянская": "Włoska", "азиатская": "Azjatycka", "средиземноморская": "Śródziemnomorska", "мексиканская": "Meksykańska", "восточная": "Wschodnia", "американская": "Amerykańska", "французская": "Francuska" }
     },
   "tabs": {
