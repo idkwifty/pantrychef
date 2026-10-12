@@ -1,0 +1,40 @@
+{
+  "tabs": {
+    "home": "Start",
+    "recipes": "Rezepte",
+    "scan": "Scan",
+    "settings": "Einstellungen"
+  },
+  "providers": { "local": "Integrierte Rezepte" 
+  },
+  "block": {
+  "allergen": "Allergen",
+  "disliked": "ungeliebte Zutat",
+  "notVegetarian": "nicht vegetarisch",
+  "notVegan": "nicht vegan",
+  "hasMeat": "enthält Fleisch",
+  "highCarb": "viele Kohlenhydrate",
+  "notHalal": "nicht halal"
+  },
+"errors": { "generic": "Fehler" 
+  },
+  "home": {
+    "welcome": "Willkommen bei PantryChef"
+  },
+  "settings": {
+    "language": "Sprache",
+    "sources": "Rezeptquellen",
+    "sourcesHint": "Aktiviere beliebige APIs. Ohne Schlüssel funktionieren die integrierten Rezepte und TheMealDB.",
+    "needsKey": "API-Schlüssel erforderlich",
+    "worksNow": "Funktioniert sofort",
+    "apiKeys": "API-Schlüssel",
+    "hideKeys": "Schlüssel ausblenden",
+    "showKeys": "Schlüsselfelder anzeigen",
+    "openaiKey": "OpenAI-Schlüssel für das Kühlschrankfoto",
+    "pasteKey": "Schlüssel einfügen",
+    "profile": "Dein Profil",
+    "profileSummary": "Ernährung: {{diet}}. Allergien: {{allergies}}. Schärfe: {{spice}}.",
+    "none": "keine",
+    "retake": "Fragebogen erneut ausfüllen"
+  }
+}

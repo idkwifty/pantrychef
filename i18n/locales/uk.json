@@ -1,0 +1,41 @@
+{
+  "tabs": {
+    "home": "Головна",
+    "recipes": "Рецепти",
+    "scan": "Скан",
+    "settings": "Налаштування"
+  },
+  "providers": {
+    "local": "Вбудовані рецепти" 
+  },
+  "block": {
+  "allergen": "алерген",
+  "disliked": "небажаний продукт",
+  "notVegetarian": "не вегетаріанське",
+  "notVegan": "не веганське",
+  "hasMeat": "є м'ясо",
+  "highCarb": "багато вуглеводів",
+  "notHalal": "не халяль"
+  },
+"errors": { "generic": "помилка" 
+  },
+  "home": {
+    "welcome": "Ласкаво просимо до PantryChef"
+  },
+  "settings": {
+    "language": "Мова",
+    "sources": "Джерела рецептів",
+    "sourcesHint": "Вмикайте будь-які API. Без ключів працюють вбудовані рецепти та TheMealDB.",
+    "needsKey": "Потрібен API-ключ",
+    "worksNow": "Працює одразу",
+    "apiKeys": "Ключі API",
+    "hideKeys": "Сховати ключі",
+    "showKeys": "Показати поля ключів",
+    "openaiKey": "OpenAI key для фото холодильника",
+    "pasteKey": "вставте ключ",
+    "profile": "Ваш профіль",
+    "profileSummary": "Раціон: {{diet}}. Алергії: {{allergies}}. Гострота: {{spice}}.",
+    "none": "немає",
+    "retake": "Пройти опитування знову"
+  }
+}

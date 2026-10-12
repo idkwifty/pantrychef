@@ -32,7 +32,7 @@
     "web": {
       "bundler": "metro",
       "output": "single"
-      },
+    },
     "plugins": [
       "expo-router",
       [
@@ -41,7 +41,8 @@
           "photosPermission": "Нужен доступ к фото, чтобы выбрать снимок холодильника.",
           "cameraPermission": "Нужна камера, чтобы сфотографировать холодильник."
         }
-      ]
+      ],
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true

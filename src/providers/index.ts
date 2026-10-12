@@ -15,6 +15,7 @@ import {
   canonicalName,
 } from "../lib/normalize";
 import { LOCAL_RECIPES } from "../data/localRecipes";
+import i18n from "../../i18n";
 
 export type RecipeProvider = {
   id: ProviderId;
@@ -194,15 +195,16 @@ function blockReason(
   disliked: Set<string>,
   prefs: Preferences
 ): string | undefined {
-  if (ingredients.some((item) => allergens.has(item))) return "аллерген";
-  if (ingredients.some((item) => disliked.has(item))) return "нелюбимый продукт";
+  const t = i18n.t.bind(i18n);
+  if (ingredients.some((item) => allergens.has(item))) return t("block.allergen");
+  if (ingredients.some((item) => disliked.has(item))) return t("block.disliked");
   if (prefs.diet === "vegetarian" && ingredients.some((item) => [...MEAT, ...FISH, "shrimp"].includes(item))) {
-    return "не вегетарианское";
+    return t("block.notVegetarian");
   }
-  if (prefs.diet === "vegan" && ingredients.some((item) => ANIMAL.includes(item))) return "не веганское";
-  if (prefs.diet === "pescatarian" && ingredients.some((item) => MEAT.includes(item))) return "есть мясо";
-  if (prefs.diet === "keto" && ingredients.some((item) => HIGH_CARB.includes(item))) return "много углеводов";
-  if (prefs.diet === "halal" && ingredients.some((item) => ["pork"].includes(item))) return "не халяль";
+  if (prefs.diet === "vegan" && ingredients.some((item) => ANIMAL.includes(item))) return t("block.notVegan");
+  if (prefs.diet === "pescatarian" && ingredients.some((item) => MEAT.includes(item))) return t("block.hasMeat");
+  if (prefs.diet === "keto" && ingredients.some((item) => HIGH_CARB.includes(item))) return t("block.highCarb");
+  if (prefs.diet === "halal" && ingredients.some((item) => ["pork"].includes(item))) return t("block.notHalal");
   return undefined;
 }
 
@@ -218,7 +220,7 @@ export async function searchAllProviders(
       try {
         return await provider.search(ingredients, keys);
       } catch (error) {
-        errors.push(`${provider.label}: ${error instanceof Error ? error.message : "ошибка"}`);
+        errors.push(`${provider.label}: ${error instanceof Error ? error.message : i18n.t("errors.generic")}`);
         return [] as NormalizedRecipe[];
       }
     })

@@ -1,0 +1,40 @@
+{
+  "tabs": {
+    "home": "Start",
+    "recipes": "Przepisy",
+    "scan": "Skan",
+    "settings": "Ustawienia"
+  },
+  "providers": { "local":"Wbudowane przepisy" 
+},
+"block": {
+  "allergen": "alergen",
+  "disliked": "nielubiany składnik",
+  "notVegetarian": "niewegetariańskie",
+  "notVegan": "niewegańskie",
+  "hasMeat": "zawiera mięso",
+  "highCarb": "dużo węglowodanów",
+  "notHalal": "nie halal"
+  },
+"errors": { "generic": "błąd" 
+  },
+  "home": {
+    "welcome": "Witaj w PantryChef"
+  },
+  "settings": {
+    "language": "Język",
+    "sources": "Źródła przepisów",
+    "sourcesHint": "Włączaj dowolne API. Bez kluczy działają wbudowane przepisy i TheMealDB.",
+    "needsKey": "Wymagany klucz API",
+    "worksNow": "Działa od razu",
+    "apiKeys": "Klucze API",
+    "hideKeys": "Ukryj klucze",
+    "showKeys": "Pokaż pola kluczy",
+    "openaiKey": "Klucz OpenAI do zdjęcia lodówki",
+    "pasteKey": "wklej klucz",
+    "profile": "Twój profil",
+    "profileSummary": "Dieta: {{diet}}. Alergie: {{allergies}}. Ostrość: {{spice}}.",
+    "none": "brak",
+    "retake": "Wypełnij ankietę ponownie"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tabs": {
+    "home": "Главная",
+    "recipes": "Рецепты",
+    "scan": "Скан",
+    "settings": "Настройки"
+  },
+    "providers": { 
+      "local": "Встроенные рецепты" 
+    }, 
+    "block": {
+  "allergen": "аллерген",
+  "disliked": "нелюбимый продукт",
+  "notVegetarian": "не вегетарианское",
+  "notVegan": "не веганское",
+  "hasMeat": "есть мясо",
+  "highCarb": "много углеводов",
+  "notHalal": "не халяль"
+  },
+"errors": { "generic": "ошибка" 
+  },
+  "home": {
+    "welcome": "Добро пожаловать в PantryChef"
+  },
+  "settings": {
+    "language": "Язык",
+    "sources": "Источники рецептов",
+    "sourcesHint": "Включайте любые API. Без ключей работают встроенные рецепты и TheMealDB.",
+    "needsKey": "Нужен API-ключ",
+    "worksNow": "Работает сразу",
+    "apiKeys": "Ключи API",
+    "hideKeys": "Скрыть ключи",
+    "showKeys": "Показать поля ключей",
+    "openaiKey": "OpenAI key для фото холодильника",
+    "pasteKey": "вставьте ключ",
+    "profile": "Ваш профиль",
+    "profileSummary": "Рацион: {{diet}}. Аллергии: {{allergies}}. Острота: {{spice}}.",
+    "none": "нет",
+    "retake": "Пройти опросник заново"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tabs": {
+    "home": "Home",
+    "recipes": "Recipes",
+    "scan": "Scan",
+    "settings": "Settings"
+  },
+  "providers": {
+    "local": "Built-in recipes" 
+  },
+  "block": {
+  "allergen": "allergen",
+  "disliked": "disliked ingredient",
+  "notVegetarian": "not vegetarian",
+  "notVegan": "not vegan",
+  "hasMeat": "contains meat",
+  "highCarb": "high in carbs",
+  "notHalal": "not halal"
+  },
+"errors": { "generic": "error" 
+  },
+  "home": {
+    "welcome": "Welcome to PantryChef"
+  },
+  "settings": {
+    "language": "Language",
+    "sources": "Recipe sources",
+    "sourcesHint": "Enable any APIs. Built-in recipes and TheMealDB work without keys.",
+    "needsKey": "API key required",
+    "worksNow": "Works right away",
+    "apiKeys": "API keys",
+    "hideKeys": "Hide keys",
+    "showKeys": "Show key fields",
+    "openaiKey": "OpenAI key for fridge photo",
+    "pasteKey": "paste your key",
+    "profile": "Your profile",
+    "profileSummary": "Diet: {{diet}}. Allergies: {{allergies}}. Spice level: {{spice}}.",
+    "none": "none",
+    "retake": "Retake the questionnaire"
+  }
+}
