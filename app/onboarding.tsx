@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { router } from "expo-router";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useTranslation } from "react-i18next";
 import { Chip, Field, PrimaryButton, Title } from "../src/components/ui";
 import {
   ALLERGY_OPTIONS,
@@ -14,9 +15,10 @@ import type { Preferences } from "../src/types";
 import { useAppStore } from "../src/store/useAppStore";
 import { colors, radius, space } from "../src/theme";
 
-const STEPS = ["Привет", "Аллергии", "Рацион", "Кухни", "Острота", "Не люблю"];
+const STEPS = ["hello", "allergies", "diet", "cuisines", "spice", "dislikes"] as const;
 
 export default function Onboarding() {
+  const { t } = useTranslation();
   const completeOnboarding = useAppStore((s) => s.completeOnboarding);
   const [step, setStep] = useState(0);
   const [prefs, setPrefs] = useState<Preferences>(defaultPreferences());
@@ -42,27 +44,25 @@ export default function Onboarding() {
         <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
       </View>
       <Text style={styles.stepLabel}>
-        {step + 1} / {STEPS.length} · {STEPS[step]}
+        {step + 1} / {STEPS.length} · {t(`onboarding.steps.${STEPS[step]}`)}
       </Text>
       <ScrollView contentContainerStyle={styles.body} keyboardShouldPersistTaps="handled">
         {step === 0 && (
           <>
             <Text style={styles.emoji}>🥗</Text>
-            <Title>PantryChef готовит из того, что уже есть</Title>
-            <Text style={styles.lead}>
-              Сначала коротко спросим про аллергии и вкус. Потом вы впишете продукты — или позже сфотографируете холодильник.
-            </Text>
+            <Title>{t("onboarding.welcomeTitle")}</Title>
+            <Text style={styles.lead}>{t("onboarding.welcomeLead")}</Text>
           </>
         )}
         {step === 1 && (
           <>
-            <Title>Есть аллергии?</Title>
-            <Text style={styles.lead}>Можно выбрать несколько или пропустить.</Text>
+            <Title>{t("onboarding.allergiesTitle")}</Title>
+            <Text style={styles.lead}>{t("onboarding.allergiesLead")}</Text>
             <View style={styles.wrap}>
               {ALLERGY_OPTIONS.map((item) => (
                 <Chip
                   key={item.id}
-                  label={item.label}
+                  label={t(`onboarding.allergies.${item.id}`, { defaultValue: item.label })}
                   selected={prefs.allergies.includes(item.id)}
                   tone="warn"
                   onPress={() => setPrefs({ ...prefs, allergies: toggle(prefs.allergies, item.id) })}
@@ -73,27 +73,31 @@ export default function Onboarding() {
         )}
         {step === 2 && (
           <>
-            <Title>Какой рацион ближе?</Title>
+            <Title>{t("onboarding.dietTitle")}</Title>
             {DIET_OPTIONS.map((item) => (
               <Pressable
                 key={item.id}
                 onPress={() => setPrefs({ ...prefs, diet: item.id })}
                 style={[styles.choice, prefs.diet === item.id && styles.choiceOn]}
               >
-                <Text style={styles.choiceTitle}>{item.label}</Text>
-                <Text style={styles.choiceHint}>{item.hint}</Text>
+                <Text style={styles.choiceTitle}>
+                  {t(`onboarding.diets.${item.id}`, { defaultValue: item.label })}
+                </Text>
+                <Text style={styles.choiceHint}>
+                  {t(`onboarding.dietHints.${item.id}`, { defaultValue: item.hint })}
+                </Text>
               </Pressable>
             ))}
           </>
         )}
         {step === 3 && (
           <>
-            <Title>Какие кухни любите?</Title>
+            <Title>{t("onboarding.cuisinesTitle")}</Title>
             <View style={styles.wrap}>
               {CUISINE_OPTIONS.map((item) => (
                 <Chip
                   key={item}
-                  label={item}
+                  label={t(`onboarding.cuisines.${item}`, { defaultValue: item })}
                   selected={prefs.cuisines.includes(item)}
                   onPress={() => setPrefs({ ...prefs, cuisines: toggle(prefs.cuisines, item) })}
                 />
@@ -103,26 +107,28 @@ export default function Onboarding() {
         )}
         {step === 4 && (
           <>
-            <Title>Острота</Title>
+            <Title>{t("onboarding.spiceTitle")}</Title>
             {SPICE_OPTIONS.map((item) => (
               <Pressable
                 key={item.id}
                 onPress={() => setPrefs({ ...prefs, spice: item.id })}
                 style={[styles.choice, prefs.spice === item.id && styles.choiceOn]}
               >
-                <Text style={styles.choiceTitle}>{item.label}</Text>
+                <Text style={styles.choiceTitle}>
+                  {t(`onboarding.spice.${item.id}`, { defaultValue: item.label })}
+                </Text>
               </Pressable>
             ))}
           </>
         )}
         {step === 5 && (
           <>
-            <Title>Что лучше не предлагать?</Title>
-            <Text style={styles.lead}>Например: кинза, грибы, печень.</Text>
+            <Title>{t("onboarding.dislikesTitle")}</Title>
+            <Text style={styles.lead}>{t("onboarding.dislikesLead")}</Text>
             <Field
               value={dislikeDraft}
               onChangeText={setDislikeDraft}
-              placeholder="Добавить продукт"
+              placeholder={t("onboarding.dislikesPlaceholder")}
               onSubmit={() => {
                 if (!dislikeDraft.trim()) return;
                 setPrefs({ ...prefs, disliked: [...prefs.disliked, dislikeDraft.trim()] });
@@ -148,13 +154,16 @@ export default function Onboarding() {
       <View style={styles.footer}>
         {step > 0 ? (
           <Pressable onPress={() => setStep(step - 1)}>
-            <Text style={styles.back}>Назад</Text>
+            <Text style={styles.back}>{t("onboarding.back")}</Text>
           </Pressable>
         ) : (
           <View />
         )}
         <View style={{ flex: 1, marginLeft: 16 }}>
-          <PrimaryButton label={step === STEPS.length - 1 ? "К продуктам" : "Дальше"} onPress={next} />
+          <PrimaryButton
+            label={step === STEPS.length - 1 ? t("onboarding.toProducts") : t("onboarding.next")}
+            onPress={next}
+          />
         </View>
       </View>
     </SafeAreaView>

@@ -1,4 +1,29 @@
 {
+  "chooseLanguage": {
+  "title": "Wybierz język",
+  "subtitle": "Możesz go zmienić później w ustawieniach.",
+  "continue": "Dalej"
+  },
+  "onboarding": {
+  "steps": { "hello": "Cześć", "allergies": "Alergie", "diet": "Dieta", "cuisines": "Kuchnie", "spice": "Ostrość", "dislikes": "Nie lubię" },
+  "welcomeTitle": "PantryChef gotuje z tego, co już masz",
+  "welcomeLead": "Najpierw kilka krótkich pytań o alergie i smak. Potem wpisujesz produkty albo później robisz zdjęcie lodówki.",
+  "allergiesTitle": "Masz alergie?",
+  "allergiesLead": "Możesz wybrać kilka lub pominąć.",
+  "dietTitle": "Jaka dieta jest Ci najbliższa?",
+  "cuisinesTitle": "Jakie kuchnie lubisz?",
+  "spiceTitle": "Ostrość",
+  "dislikesTitle": "Czego lepiej nie proponować?",
+  "dislikesLead": "Na przykład: kolendra, grzyby, wątróbka.",
+  "dislikesPlaceholder": "Dodaj produkt",
+  "back": "Wstecz",
+  "next": "Dalej",
+  "toProducts": "Do produktów",
+  "allergies": { "milk": "Mleko", "eggs": "Jajka", "peanuts": "Orzeszki ziemne", "nuts": "Orzechy", "gluten": "Gluten", "soy": "Soja", "fish": "Ryby", "shellfish": "Owoce morza", "sesame": "Sezam" },
+  "diets": { "omnivore": "Jem wszystko", "vegetarian": "Wegetariańska", "vegan": "Wegańska", "pescatarian": "Peskatariańska", "keto": "Keto", "halal": "Halal" },
+  "dietHints": { "omnivore": "Bez ograniczeń", "vegetarian": "Bez mięsa i ryb", "vegan": "Bez produktów zwierzęcych", "pescatarian": "Ryby tak, mięso nie", "keto": "Mało węglowodanów", "halal": "Bez wieprzowiny" },
+  "spice": { "none": "Nieostre", "mild": "Odrobinę", "medium": "Średnio", "hot": "Ostro" }
+    },
   "tabs": {
   "products": "Produkty",
   "recipes": "Dania",

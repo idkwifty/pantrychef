@@ -47,5 +47,8 @@ export async function setLanguage(code: string) {
   await AsyncStorage.setItem(STORAGE_KEY, code);
   await i18n.changeLanguage(code);
 }
-
+export async function hasChosenLanguage() {
+  const saved = await AsyncStorage.getItem(STORAGE_KEY);
+  return saved !== null;
+}
 export default i18n;

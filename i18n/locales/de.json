@@ -1,4 +1,29 @@
 {
+  "chooseLanguage": {
+  "title": "Sprache wählen",
+  "subtitle": "Du kannst sie später in den Einstellungen ändern.",
+  "continue": "Weiter"
+  },
+  "onboarding": {
+  "steps": { "hello": "Hallo", "allergies": "Allergien", "diet": "Ernährung", "cuisines": "Küchen", "spice": "Schärfe", "dislikes": "Mag ich nicht" },
+  "welcomeTitle": "PantryChef kocht mit dem, was du schon hast",
+  "welcomeLead": "Zuerst ein paar kurze Fragen zu Allergien und Geschmack. Dann gibst du deine Zutaten ein oder machst später ein Foto vom Kühlschrank.",
+  "allergiesTitle": "Hast du Allergien?",
+  "allergiesLead": "Du kannst mehrere wählen oder überspringen.",
+  "dietTitle": "Welche Ernährung passt am besten?",
+  "cuisinesTitle": "Welche Küchen magst du?",
+  "spiceTitle": "Schärfe",
+  "dislikesTitle": "Was sollen wir lieber nicht vorschlagen?",
+  "dislikesLead": "Zum Beispiel: Koriander, Pilze, Leber.",
+  "dislikesPlaceholder": "Zutat hinzufügen",
+  "back": "Zurück",
+  "next": "Weiter",
+  "toProducts": "Zu den Produkten",
+  "allergies": { "milk": "Milch", "eggs": "Eier", "peanuts": "Erdnüsse", "nuts": "Nüsse", "gluten": "Gluten", "soy": "Soja", "fish": "Fisch", "shellfish": "Meeresfrüchte", "sesame": "Sesam" },
+  "diets": { "omnivore": "Ich esse alles", "vegetarian": "Vegetarisch", "vegan": "Vegan", "pescatarian": "Pescetarisch", "keto": "Keto", "halal": "Halal" },
+  "dietHints": { "omnivore": "Keine Einschränkungen", "vegetarian": "Ohne Fleisch und Fisch", "vegan": "Ohne tierische Produkte", "pescatarian": "Fisch ja, Fleisch nein", "keto": "Wenig Kohlenhydrate", "halal": "Ohne Schweinefleisch" },
+  "spice": { "none": "Nicht scharf", "mild": "Ein bisschen", "medium": "Mittel", "hot": "Scharf" }
+  },
   "tabs": {
   "products": "Produkte",
   "recipes": "Gerichte",

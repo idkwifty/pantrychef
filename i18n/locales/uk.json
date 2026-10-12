@@ -1,4 +1,29 @@
 {
+  "chooseLanguage": {
+  "title": "Оберіть мову",
+  "subtitle": "Мову можна змінити пізніше в налаштуваннях.",
+  "continue": "Продовжити"
+  },
+  "onboarding": {
+  "steps": { "hello": "Привіт", "allergies": "Алергії", "diet": "Раціон", "cuisines": "Кухні", "spice": "Гострота", "dislikes": "Не люблю" },
+  "welcomeTitle": "PantryChef готує з того, що вже є",
+  "welcomeLead": "Спочатку коротко запитаємо про алергії та смаки. Потім ви впишете продукти — або пізніше сфотографуєте холодильник.",
+  "allergiesTitle": "Є алергії?",
+  "allergiesLead": "Можна вибрати кілька або пропустити.",
+  "dietTitle": "Який раціон ближчий?",
+  "cuisinesTitle": "Які кухні любите?",
+  "spiceTitle": "Гострота",
+  "dislikesTitle": "Що краще не пропонувати?",
+  "dislikesLead": "Наприклад: коріандр, гриби, печінка.",
+  "dislikesPlaceholder": "Додати продукт",
+  "back": "Назад",
+  "next": "Далі",
+  "toProducts": "До продуктів",
+  "allergies": { "milk": "Молоко", "eggs": "Яйця", "peanuts": "Арахіс", "nuts": "Горіхи", "gluten": "Глютен", "soy": "Соя", "fish": "Риба", "shellfish": "Морепродукти", "sesame": "Кунжут" },
+  "diets": { "omnivore": "Їм усе", "vegetarian": "Вегетаріанський", "vegan": "Веганський", "pescatarian": "Пескетаріанський", "keto": "Кето", "halal": "Халяль" },
+  "dietHints": { "omnivore": "Без обмежень", "vegetarian": "Без м'яса й риби", "vegan": "Без продуктів тваринного походження", "pescatarian": "Риба можна, м'ясо ні", "keto": "Мало вуглеводів", "halal": "Без свинини" },
+  "spice": { "none": "Не гостре", "mild": "Трохи", "medium": "Помірно", "hot": "Гостро" }
+  },
   "tabs": {
   "products": "Продукти",
   "recipes": "Страви",
