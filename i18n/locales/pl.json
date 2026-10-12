@@ -27,9 +27,23 @@
   "tabs": {
   "products": "Produkty",
   "recipes": "Dania",
+  "plan": "Plan",
   "scan": "Skan",
   "settings": "Ustawienia"
-},
+  },
+  "plan": {
+  "title": "Plan posiłków",
+  "subtitle": "Śniadanie, obiad i kolacja z tego, co masz w domu, z uwzględnieniem alergii i diety.",
+  "oneDay": "Na dzień",
+  "week": "Na tydzień",
+  "generate": "Utwórz plan",
+  "generating": "Tworzymy...",
+  "emptyPantryHint": "Dodaj produkty w zakładce „Produkty”, aby plan je uwzględnił.",
+  "missing": "Trzeba dokupić: {{list}}",
+  "shopping": "Lista zakupów",
+  "disclaimer": "Plan stworzyła AI i może zawierać błędy. Przy alergiach sprawdzaj skład.",
+  "meals": { "breakfast": "Śniadanie", "lunch": "Obiad", "dinner": "Kolacja", "snack": "Przekąska" }
+  },
   "recipes": {
   "title": "Dania dla Ciebie",
   "subtitle": "Uwzględniamy alergie, dietę i to, co masz w lodówce. Źródła: wbudowane przepisy + dowolne włączone API.",

@@ -67,7 +67,6 @@ export default function SettingsScreen() {
             <Labeled value={apiKeys.spoonacular} onChange={(spoonacular) => setApiKeys({ spoonacular })} label="Spoonacular API key" />
             <Labeled value={apiKeys.edamamId} onChange={(edamamId) => setApiKeys({ edamamId })} label="Edamam App ID" />
             <Labeled value={apiKeys.edamamKey} onChange={(edamamKey) => setApiKeys({ edamamKey })} label="Edamam App Key" />
-            <Labeled value={apiKeys.openai} onChange={(openai) => setApiKeys({ openai })} label={t("settings.openaiKey")} />
           </>
         )}
 

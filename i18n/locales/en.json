@@ -27,8 +27,22 @@
   "tabs": {
   "products": "Products",
   "recipes": "Dishes",
+  "plan": "Plan",
   "scan": "Scan",
   "settings": "Settings"
+  },
+  "plan": {
+  "title": "Meal plan",
+  "subtitle": "Breakfast, lunch and dinner from what you have at home, based on your allergies and diet.",
+  "oneDay": "One day",
+  "week": "A week",
+  "generate": "Create plan",
+  "generating": "Creating...",
+  "emptyPantryHint": "Add ingredients on the “Products” tab so the plan can use them.",
+  "missing": "Need to buy: {{list}}",
+  "shopping": "Shopping list",
+  "disclaimer": "This plan is AI-generated and may contain mistakes. If you have allergies, check the ingredients.",
+  "meals": { "breakfast": "Breakfast", "lunch": "Lunch", "dinner": "Dinner", "snack": "Snack" }
   },
   "recipes": {
   "title": "Dishes for you",

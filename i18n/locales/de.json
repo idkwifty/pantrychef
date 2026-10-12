@@ -27,8 +27,22 @@
   "tabs": {
   "products": "Produkte",
   "recipes": "Gerichte",
+  "plan": "Plan",
   "scan": "Scan",
   "settings": "Einstellungen"
+  },
+  "plan": {
+  "title": "Essensplan",
+  "subtitle": "Frühstück, Mittag- und Abendessen aus dem, was du zu Hause hast, passend zu Allergien und Ernährung.",
+  "oneDay": "Ein Tag",
+  "week": "Eine Woche",
+  "generate": "Plan erstellen",
+  "generating": "Wird erstellt...",
+  "emptyPantryHint": "Füge im Tab „Produkte“ Zutaten hinzu, damit der Plan sie berücksichtigt.",
+  "missing": "Muss gekauft werden: {{list}}",
+  "shopping": "Einkaufsliste",
+  "disclaimer": "Der Plan wurde von einer KI erstellt und kann Fehler enthalten. Bei Allergien Zutaten prüfen.",
+  "meals": { "breakfast": "Frühstück", "lunch": "Mittagessen", "dinner": "Abendessen", "snack": "Snack" }
   },
   "recipes": {
   "title": "Gerichte für dich",

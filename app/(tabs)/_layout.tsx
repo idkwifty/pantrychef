@@ -30,6 +30,10 @@ export default function TabsLayout() {
         options={{ title: t("tabs.recipes"), tabBarIcon: () => <TabIcon emoji="🍳" /> }}
       />
       <Tabs.Screen
+        name="plan"
+        options={{ title: t("tabs.plan"), tabBarIcon: () => <TabIcon emoji="🗓️" /> }}
+      />
+      <Tabs.Screen
         name="scan"
         options={{ title: t("tabs.scan"), tabBarIcon: () => <TabIcon emoji="📷" /> }}
       />

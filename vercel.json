@@ -1,5 +1,6 @@
 {
   "buildCommand": "npx expo export --platform web",
   "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "functions": { "api/openai.ts": { "maxDuration": 60 } },
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/" }]
 }
