@@ -2,7 +2,7 @@ import { useState } from "react";
 import { router } from "expo-router";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
-import { Chip, Field, PrimaryButton, Screen, Subtitle, Title } from "../../src/components/ui";
+import { Chip, Field, PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";
 

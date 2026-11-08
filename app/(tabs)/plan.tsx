@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
-import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components/ui";
+import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
 import { generateMealPlan, type MealPlan } from "../../src/lib/openai";
 import { colors, radius, space } from "../../src/theme";

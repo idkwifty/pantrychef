@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components/ui";
+import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
 import { createVisionAdapter, VISION_UPGRADE_NOTES } from "../../src/vision";
 import { colors, radius, space } from "../../src/theme";

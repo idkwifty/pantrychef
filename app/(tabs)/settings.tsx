@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from "react-native";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { GhostButton, Screen, Subtitle, Title } from "../../src/components/ui";
+import { GhostButton, Screen, Subtitle, Title } from "../../src/components";
 import { PROVIDERS } from "../../src/providers";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";

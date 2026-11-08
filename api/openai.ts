@@ -15,7 +15,7 @@ const LANGS: Record<string, string> = {
   de: "German",
 };
 
-// Простий ліміт: 30 запитів на годину з однієї IP (на рівні одного екземпляра функції)
+
 const hits = new Map<string, number[]>();
 function limited(ip: string) {
   const now = Date.now();

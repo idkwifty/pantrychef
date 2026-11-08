@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { PrimaryButton, Screen, Subtitle, Title } from "../src/components/ui";
+import { PrimaryButton, Screen, Subtitle, Title } from "../src/components";
 import { colors, radius, space } from "../src/theme";
 import { LANGUAGES, setLanguage } from "../i18n";
 

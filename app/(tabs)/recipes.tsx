@@ -10,7 +10,7 @@ import {
   View,
 } from "react-native";
 import { useTranslation } from "react-i18next";
-import { PrimaryButton, Screen, Subtitle, Title } from "../../src/components/ui";
+import { PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { scoreRecipes, searchAllProviders } from "../../src/providers";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";

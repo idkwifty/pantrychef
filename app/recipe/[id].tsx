@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import { Screen } from "../../src/components/ui";
+import { Screen } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";
 
