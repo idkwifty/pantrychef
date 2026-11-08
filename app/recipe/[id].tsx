@@ -23,7 +23,7 @@ export default function RecipeScreen() {
 
   return (
     <Screen>
-      <ScrollView contentContainerStyle={{ paddingBottom: 48 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 48 }}>
         {recipe.image ? <Image source={{ uri: recipe.image }} style={styles.hero} /> : null}
         <Text style={styles.title}>{recipe.title}</Text>
         <Text style={styles.meta}>

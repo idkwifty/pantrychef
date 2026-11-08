@@ -54,7 +54,7 @@ export default function PlanScreen() {
       {!!error && <Text style={styles.warn}>{error}</Text>}
       {loading && <ActivityIndicator style={{ marginTop: 16 }} color={colors.forest} />}
 
-      <ScrollView contentContainerStyle={{ paddingVertical: 16, paddingBottom: 48 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingVertical: 16, paddingBottom: 48 }}>
         {plan?.days.map((day, i) => (
           <View key={`${day.day}-${i}`} style={styles.dayCard}>
             <Text style={styles.dayTitle}>{day.day}</Text>

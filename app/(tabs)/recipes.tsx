@@ -55,7 +55,7 @@ export default function RecipesScreen() {
         </Text>
       ))}
       {loading && <ActivityIndicator style={{ marginTop: 16 }} color={colors.forest} />}
-      <ScrollView contentContainerStyle={{ paddingVertical: 16, paddingBottom: 48 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingVertical: 16, paddingBottom: 48 }}>
         {lastResults.map((recipe) => (
           <Pressable
             key={recipe.id}

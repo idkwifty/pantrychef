@@ -55,7 +55,7 @@ export default function ScanScreen() {
 
   return (
     <Screen>
-      <ScrollView contentContainerStyle={{ paddingBottom: 48 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 48 }}>
         <Title>Фото холодильника</Title>
         <Subtitle>
           Сейчас основной ввод — текстом. Этот экран уже готов к апгрейду: снимок уходит в VisionAdapter, и продукты попадают в тот же холодильник.

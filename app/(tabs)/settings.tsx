@@ -20,7 +20,7 @@ export default function SettingsScreen() {
 
   return (
     <Screen>
-      <ScrollView contentContainerStyle={{ paddingBottom: 48 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 48 }}>
         <Title>{t("settings.language")}</Title>
         <View style={{ height: space.md }} />
         {LANGUAGES.map((lang) => {

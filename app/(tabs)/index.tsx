@@ -68,7 +68,7 @@ export default function PantryScreen() {
           </Pressable>
         )}
       </View>
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 40 }}>
         <View style={styles.wrap}>
           {pantry.map((item) => (
             <Chip

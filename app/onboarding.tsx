@@ -14,11 +14,13 @@ import {
 import type { Preferences } from "../src/types";
 import { useAppStore } from "../src/store/useAppStore";
 import { colors, radius, space } from "../src/theme";
+import { useResponsive } from "../src/lib/responsive";
 
 const STEPS = ["hello", "allergies", "diet", "cuisines", "spice", "dislikes"] as const;
 
 export default function Onboarding() {
   const { t } = useTranslation();
+  const { maxContent } = useResponsive();
   const completeOnboarding = useAppStore((s) => s.completeOnboarding);
   const [step, setStep] = useState(0);
   const [prefs, setPrefs] = useState<Preferences>(defaultPreferences());
@@ -40,6 +42,7 @@ export default function Onboarding() {
 
   return (
     <SafeAreaView style={styles.safe}>
+      <View style={[styles.content, { maxWidth: maxContent }]}>
       <View style={styles.progressTrack}>
         <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
       </View>
@@ -166,12 +169,14 @@ export default function Onboarding() {
           />
         </View>
       </View>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: colors.bg },
+  safe: { flex: 1, backgroundColor: colors.bg, alignItems: "center" },
+  content: { flex: 1, width: "100%" },
   progressTrack: {
     height: 6,
     backgroundColor: colors.bgAlt,
