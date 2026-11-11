@@ -26,7 +26,7 @@ export type PantryItem = {
   addedAt: number;
 };
 
-export type ProviderId = "local" | "mealdb" | "spoonacular" | "edamam" | "custom";
+export type ProviderId = "ai" | "local" | "mealdb" | "spoonacular" | "edamam" | "custom";
 
 export type ProviderFlags = Record<ProviderId, boolean>;
 
@@ -117,8 +117,9 @@ export const defaultPreferences = (): Preferences => ({
 });
 
 export const defaultProviderFlags = (): ProviderFlags => ({
-  local: true,
-  mealdb: true,
+  ai: true,
+  local: false,
+  mealdb: false,
   spoonacular: false,
   edamam: false,
   custom: false,

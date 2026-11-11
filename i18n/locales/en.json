@@ -47,7 +47,7 @@
   },
   "recipes": {
   "title": "Dishes for you",
-  "subtitle": "We take allergies, diet and what's in your fridge into account. Sources: built-in recipes + any enabled APIs.",
+  "subtitle": "AI creates recipes from your ingredients and adapts them to your allergies, diet and preferences.",
   "refresh": "Refresh suggestions",
   "searching": "Searching...",
   "addFirst": "First add ingredients on the “Products” tab.",
@@ -72,6 +72,7 @@
   }
   },
   "providers": {
+    "ai": "Artificial intelligence",
     "local": "Built-in recipes" 
   },
   "block": {

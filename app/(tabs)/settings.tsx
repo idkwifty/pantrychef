@@ -1,22 +1,15 @@
-import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
-import { GhostButton, Screen, Subtitle, Title } from "../../src/components";
-import { PROVIDERS } from "../../src/providers";
+import { GhostButton, Screen, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";
 import { LANGUAGES, setLanguage } from "../../i18n";
 
 export default function SettingsScreen() {
   const { t, i18n } = useTranslation();
-  const providers = useAppStore((s) => s.providers);
-  const setProviders = useAppStore((s) => s.setProviders);
-  const apiKeys = useAppStore((s) => s.apiKeys);
-  const setApiKeys = useAppStore((s) => s.setApiKeys);
   const resetOnboarding = useAppStore((s) => s.resetOnboarding);
   const preferences = useAppStore((s) => s.preferences);
-  const [showKeys, setShowKeys] = useState(false);
 
   return (
     <Screen>
@@ -37,39 +30,6 @@ export default function SettingsScreen() {
           );
         })}
 
-        <Text style={styles.section}>{t("settings.sources")}</Text>
-        <Subtitle>{t("settings.sourcesHint")}</Subtitle>
-        <View style={{ height: space.md }} />
-        {PROVIDERS.map((provider) => (
-          <View key={provider.id} style={styles.row}>
-            <View style={{ flex: 1 }}>
-              <Text style={styles.rowTitle}>
-                {t(`providers.${provider.id}`, { defaultValue: provider.label })}
-              </Text>
-              <Text style={styles.rowHint}>
-                {provider.needsKey ? t("settings.needsKey") : t("settings.worksNow")}
-              </Text>
-            </View>
-            <Switch
-              value={providers[provider.id]}
-              onValueChange={(value) => setProviders({ [provider.id]: value })}
-              trackColor={{ true: colors.leaf }}
-            />
-          </View>
-        ))}
-
-        <Text style={styles.section}>{t("settings.apiKeys")}</Text>
-        <Pressable onPress={() => setShowKeys(!showKeys)}>
-          <Text style={styles.link}>{showKeys ? t("settings.hideKeys") : t("settings.showKeys")}</Text>
-        </Pressable>
-        {showKeys && (
-          <>
-            <Labeled value={apiKeys.spoonacular} onChange={(spoonacular) => setApiKeys({ spoonacular })} label="Spoonacular API key" />
-            <Labeled value={apiKeys.edamamId} onChange={(edamamId) => setApiKeys({ edamamId })} label="Edamam App ID" />
-            <Labeled value={apiKeys.edamamKey} onChange={(edamamKey) => setApiKeys({ edamamKey })} label="Edamam App Key" />
-          </>
-        )}
-
         <Text style={styles.section}>{t("settings.profile")}</Text>
         <Text style={styles.body}>
           {t("settings.profileSummary", {
@@ -87,33 +47,6 @@ export default function SettingsScreen() {
         />
       </ScrollView>
     </Screen>
-  );
-}
-
-function Labeled({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-}) {
-  const { t } = useTranslation();
-  return (
-    <View style={{ marginTop: 12 }}>
-      <Text style={styles.fieldLabel}>{label}</Text>
-      <TextInput
-        value={value}
-        onChangeText={onChange}
-        autoCapitalize="none"
-        autoCorrect={false}
-        secureTextEntry
-        placeholder={t("settings.pasteKey")}
-        placeholderTextColor={colors.muted}
-        style={styles.input}
-      />
-    </View>
   );
 }
 

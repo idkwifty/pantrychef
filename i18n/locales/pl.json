@@ -47,7 +47,7 @@
   },
   "recipes": {
   "title": "Dania dla Ciebie",
-  "subtitle": "Uwzględniamy alergie, dietę i to, co masz w lodówce. Źródła: wbudowane przepisy + dowolne włączone API.",
+  "subtitle": "AI tworzy przepisy z Twoich składników, uwzględniając alergie, dietę i preferencje.",
   "refresh": "Odśwież propozycje",
   "searching": "Szukamy...",
   "addFirst": "Najpierw dodaj produkty w zakładce „Produkty”.",
@@ -71,7 +71,7 @@
     "onion": "cebula", "tomatoes": "pomidory", "cheese": "ser", "pasta": "makaron", "garlic": "czosnek"
   }
     },
-  "providers": { "local":"Wbudowane przepisy" 
+  "providers": { "ai":"Sztuczna inteligencja", "local":"Wbudowane przepisy" 
 },
 "block": {
   "allergen": "alergen",

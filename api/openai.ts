@@ -145,6 +145,38 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    if (body.kind === "recipes") {
+      const language = LANGS[body.lang] ?? "English";
+      const prefs = body.prefs ?? {};
+      const data = await callOpenAI(
+        [
+          {
+            role: "system",
+            content:
+              `You are a practical, creative home cook. Write all recipe text in ${language}. ` +
+              "Create 8 distinct recipes tailored to the ingredients the user has. Prefer recipes that use several available ingredients, and use common pantry staples only when needed. " +
+              "Never include allergens or disliked ingredients. Strictly respect the diet, cuisine preferences, and spice level. Do not claim a recipe is safe if unsure. " +
+              "List every ingredient with a realistic quantity and write clear, numbered cooking steps. " +
+              'Reply only with JSON: {"recipes":[{"title":string,"cuisine":string,"minutes":number,"ingredients":string[],"instructions":string}]}.',
+          },
+          {
+            role: "user",
+            content: JSON.stringify({
+              ingredientsAtHome: strs(body.pantry, 60, 60),
+              allergies: strs(prefs.allergies, 20, 40),
+              diet: String(prefs.diet ?? "none").slice(0, 20),
+              dislikes: strs(prefs.disliked, 30, 60),
+              spiceLevel: String(prefs.spice ?? "mild").slice(0, 10),
+              favoriteCuisines: strs(prefs.cuisines, 10, 40),
+            }),
+          },
+        ],
+        5000
+      );
+      const recipes = Array.isArray(data.recipes) ? data.recipes.slice(0, 8) : [];
+      return res.status(200).json({ recipes });
+    }
+
     return res.status(400).json({ error: "Unknown request" });
   } catch {
     return res.status(502).json({ error: "Upstream error" });

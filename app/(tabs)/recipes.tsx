@@ -11,16 +11,15 @@ import {
 } from "react-native";
 import { useTranslation } from "react-i18next";
 import { PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
-import { scoreRecipes, searchAllProviders } from "../../src/providers";
+import { scoreRecipes } from "../../src/providers";
+import { generateRecipes } from "../../src/lib/openai";
 import { useAppStore } from "../../src/store/useAppStore";
 import { colors, radius, space } from "../../src/theme";
 
 export default function RecipesScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const pantry = useAppStore((s) => s.pantry);
   const preferences = useAppStore((s) => s.preferences);
-  const providers = useAppStore((s) => s.providers);
-  const apiKeys = useAppStore((s) => s.apiKeys);
   const lastResults = useAppStore((s) => s.lastResults);
   const lastErrors = useAppStore((s) => s.lastErrors);
   const setResults = useAppStore((s) => s.setResults);
@@ -31,8 +30,10 @@ export default function RecipesScreen() {
     setLoading(true);
     try {
       const names = pantry.map((item) => item.name);
-      const { recipes, errors } = await searchAllProviders(names, providers, apiKeys);
-      setResults(scoreRecipes(recipes, names, preferences), errors);
+      const recipes = await generateRecipes({ pantry: names, prefs: preferences, lang: i18n.language });
+      setResults(scoreRecipes(recipes, names, preferences), []);
+    } catch (error) {
+      setResults([], [error instanceof Error ? error.message : t("errors.generic")]);
     } finally {
       setLoading(false);
     }

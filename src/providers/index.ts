@@ -37,6 +37,7 @@ export const localProvider: RecipeProvider = {
   },
 };
 
+
 export const mealDbProvider: RecipeProvider = {
   id: "mealdb",
   label: "TheMealDB",

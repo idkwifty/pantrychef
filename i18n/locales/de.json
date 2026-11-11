@@ -47,7 +47,7 @@
   },
   "recipes": {
   "title": "Gerichte für dich",
-  "subtitle": "Wir berücksichtigen Allergien, Ernährung und das, was im Kühlschrank liegt. Quellen: integrierte Rezepte + beliebige aktivierte APIs.",
+  "subtitle": "KI erstellt Rezepte aus deinen Zutaten und berücksichtigt Allergien, Ernährung und Vorlieben.",
   "refresh": "Vorschläge aktualisieren",
   "searching": "Suche läuft...",
   "addFirst": "Füge zuerst Zutaten im Tab „Produkte“ hinzu.",
@@ -71,7 +71,7 @@
     "onion": "Zwiebel", "tomatoes": "Tomaten", "cheese": "Käse", "pasta": "Nudeln", "garlic": "Knoblauch"
   }
     },
-  "providers": { "local": "Integrierte Rezepte" 
+  "providers": { "ai": "Künstliche Intelligenz", "local": "Integrierte Rezepte" 
   },
   "block": {
   "allergen": "Allergen",
