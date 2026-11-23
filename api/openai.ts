@@ -1,5 +1,10 @@
-const MODEL = "gpt-4o-mini"; // можна змінити на іншу модель із підтримкою зображень
-const API_URL = "https://api.openai.com/v1/chat/completions";
+const GATEWAY_KEY = process.env.AI_GATEWAY_API_KEY;
+const OPENAI_KEY = process.env.OPENAI_API_KEY;
+const MODEL = GATEWAY_KEY ? "openai/gpt-4o-mini" : "gpt-4o-mini";
+const API_URL = GATEWAY_KEY
+  ? "https://ai-gateway.vercel.sh/v1/chat/completions"
+  : "https://api.openai.com/v1/chat/completions";
+const API_KEY = GATEWAY_KEY || OPENAI_KEY;
 
 const ALLOWED_ORIGINS = [
   "http://localhost:8081",
@@ -37,7 +42,7 @@ async function callOpenAI(messages: unknown[], maxTokens: number) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      Authorization: `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
       model: MODEL,
@@ -78,7 +83,7 @@ export default async function handler(req: any, res: any) {
 
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
-  if (!process.env.OPENAI_API_KEY) return res.status(500).json({ error: "Server is not configured" });
+  if (!API_KEY) return res.status(500).json({ error: "Add AI_GATEWAY_API_KEY or OPENAI_API_KEY in Vercel Environment Variables" });
 
   const ip = String(req.headers["x-forwarded-for"] ?? "unknown").split(",")[0].trim();
   if (limited(ip)) return res.status(429).json({ error: "Too many requests" });
