@@ -3,7 +3,7 @@ import * as ImagePicker from "expo-image-picker";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
-import { createVisionAdapter, VISION_UPGRADE_NOTES } from "../../src/vision";
+import { createVisionAdapter } from "../../src/vision";
 import { colors, radius, space } from "../../src/theme";
 import type { DetectedIngredient } from "../../src/types";
 
@@ -58,7 +58,7 @@ export default function ScanScreen() {
       <ScrollView style={{ flex: 1 }} contentContainerStyle={{ paddingBottom: 48 }}>
         <Title>Фото холодильника</Title>
         <Subtitle>
-          Сейчас основной ввод — текстом. Этот экран уже готов к апгрейду: снимок уходит в VisionAdapter, и продукты попадают в тот же холодильник.
+          Сфотографируйте холодильник или выберите снимок. OpenAI распознает продукты, и вы сможете добавить их в холодильник.
         </Subtitle>
         <View style={{ height: space.md }} />
         <PrimaryButton label="Снять фото" onPress={() => pick(true)} />
@@ -93,8 +93,8 @@ export default function ScanScreen() {
           />
         )}
         <View style={styles.note}>
-          <Text style={styles.noteTitle}>Как потом включить ИИ</Text>
-          {VISION_UPGRADE_NOTES.map((line) => (
+          <Text style={styles.noteTitle}>Как включить распознавание</Text>
+          {["Откройте Настройки и добавьте свой OpenAI API ключ.", "Выберите фото и нажмите «Распознать продукты».", "Проверьте распознанные продукты и добавьте их в холодильник."].map((line) => (
             <Text key={line} style={styles.noteLine}>
               • {line}
             </Text>

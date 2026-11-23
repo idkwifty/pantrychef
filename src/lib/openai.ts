@@ -1,10 +1,14 @@
 import type { DetectedIngredient, NormalizedRecipe, Preferences } from "../types";
 import { canonicalName } from "./normalize";
+import { Platform } from "react-native";
 
-// Якщо підключиш свій домен, зміни адресу тут
-const API_URL = process.env.EXPO_PUBLIC_API_URL || "https://pantrychef-chi-seven.vercel.app/api/openai";
+// On web, call the API on the same deployment so preview and production domains work.
+const API_URL = process.env.EXPO_PUBLIC_API_URL || (Platform.OS === "web" ? "/api/openai" : "");
 
 async function callProxy(body: unknown) {
+  if (!API_URL) {
+    throw new Error("Set EXPO_PUBLIC_API_URL to your deployed /api/openai URL for native builds.");
+  }
   const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

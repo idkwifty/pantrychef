@@ -2,7 +2,6 @@ const MODEL = "gpt-4o-mini"; // можна змінити на іншу моде
 const API_URL = "https://api.openai.com/v1/chat/completions";
 
 const ALLOWED_ORIGINS = [
-  "https://pantrychef-chi-seven.vercel.app",
   "http://localhost:8081",
   "http://localhost:19006",
 ];
@@ -58,7 +57,16 @@ async function callOpenAI(messages: unknown[], maxTokens: number) {
 
 export default async function handler(req: any, res: any) {
   const origin = req.headers.origin as string | undefined;
-  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+  const requestHost = String(req.headers["x-forwarded-host"] ?? req.headers.host ?? "").split(",")[0].trim();
+  let isSameHost = false;
+  if (origin && requestHost) {
+    try {
+      isSameHost = new URL(origin).host === requestHost;
+    } catch {
+      isSameHost = false;
+    }
+  }
+  if (origin && !isSameHost && !ALLOWED_ORIGINS.includes(origin)) {
     return res.status(403).json({ error: "Forbidden" });
   }
   if (origin) {
