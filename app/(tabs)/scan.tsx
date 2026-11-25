@@ -1,16 +1,15 @@
 import { useState } from "react";
 import * as ImagePicker from "expo-image-picker";
+import * as FileSystem from "expo-file-system/legacy";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Chip, PrimaryButton, Screen, Subtitle, Title } from "../../src/components";
 import { useAppStore } from "../../src/store/useAppStore";
-import { createVisionAdapter } from "../../src/vision";
+import { detectIngredients } from "../../src/lib/openai";
 import { colors, radius, space } from "../../src/theme";
 import type { DetectedIngredient } from "../../src/types";
 
 export default function ScanScreen() {
-  const apiKeys = useAppStore((s) => s.apiKeys);
   const addMany = useAppStore((s) => s.addMany);
-  const adapter = createVisionAdapter(apiKeys);
   const [photo, setPhoto] = useState<string | null>(null);
   const [detected, setDetected] = useState<DetectedIngredient[]>([]);
   const [busy, setBusy] = useState(false);
@@ -38,12 +37,10 @@ export default function ScanScreen() {
     setBusy(true);
     setError("");
     try {
-      if (!apiKeys.openai.trim()) {
-        setError("ИИ ещё не подключён. Добавьте OpenAI ключ в настройках — или впишите продукты вручную.");
-        setDetected([]);
-        return;
-      }
-      const items = await adapter.detectFromImage(photo);
+      const base64 = await FileSystem.readAsStringAsync(photo, {
+        encoding: FileSystem.EncodingType.Base64,
+      });
+      const items = await detectIngredients(base64);
       setDetected(items);
       if (!items.length) setError("На фото ничего не распозналось. Добавьте продукты вручную.");
     } catch (e) {
@@ -68,7 +65,7 @@ export default function ScanScreen() {
           <>
             <Image source={{ uri: photo }} style={styles.preview} />
             <PrimaryButton
-              label={busy ? "Распознаём..." : adapter.ready ? "Распознать продукты" : "ИИ не настроен"}
+              label={busy ? "Распознаём..." : "Распознать продукты"}
               onPress={analyze}
               disabled={busy}
             />
@@ -92,14 +89,6 @@ export default function ScanScreen() {
             }}
           />
         )}
-        <View style={styles.note}>
-          <Text style={styles.noteTitle}>Как включить распознавание</Text>
-          {["Откройте Настройки и добавьте свой OpenAI API ключ.", "Выберите фото и нажмите «Распознать продукты».", "Проверьте распознанные продукты и добавьте их в холодильник."].map((line) => (
-            <Text key={line} style={styles.noteLine}>
-              • {line}
-            </Text>
-          ))}
-        </View>
       </ScrollView>
     </Screen>
   );
@@ -115,14 +104,4 @@ const styles = StyleSheet.create({
   },
   error: { color: colors.terracotta, marginVertical: 10 },
   wrap: { flexDirection: "row", flexWrap: "wrap", marginVertical: 12 },
-  note: {
-    marginTop: 18,
-    backgroundColor: colors.cream,
-    borderRadius: radius.md,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: colors.line,
-  },
-  noteTitle: { fontWeight: "800", marginBottom: 8, color: colors.ink },
-  noteLine: { color: colors.muted, marginBottom: 6, lineHeight: 20 },
 });

@@ -34,7 +34,6 @@ export type ApiKeys = {
   spoonacular: string;
   edamamId: string;
   edamamKey: string;
-  openai: string;
 };
 
 export type NormalizedIngredient = {
@@ -129,5 +128,4 @@ export const defaultApiKeys = (): ApiKeys => ({
   spoonacular: "",
   edamamId: "",
   edamamKey: "",
-  openai: "",
 });
