@@ -9,15 +9,31 @@ async function callProxy(body: unknown) {
   if (!API_URL) {
     throw new Error("Set EXPO_PUBLIC_API_URL to your deployed /api/openai URL for native builds.");
   }
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+  let res: Response;
+  try {
+    res = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(body),
+    });
+  } catch {
+    throw new Error("Could not reach the recipe API. Check that the app and /api/openai are deployed on the same host.");
+  }
+
+  const contentType = res.headers.get("content-type") ?? "";
+  if (!contentType.toLowerCase().includes("application/json")) {
+    throw new Error(
+      `Recipe API returned HTML instead of JSON (HTTP ${res.status}). Deploy the Vercel API function in /api/openai.ts, or set EXPO_PUBLIC_API_URL to its full URL.`
+    );
+  }
+
+  const data = await res.json().catch(() => {
+    throw new Error(`Recipe API returned invalid JSON (HTTP ${res.status}).`);
   });
   if (!res.ok) {
-    throw new Error(`${res.status}: ${(await res.text()).slice(0, 200)}`);
+    throw new Error(`${res.status}: ${typeof data.error === "string" ? data.error : "Recipe API request failed."}`);
   }
-  return res.json();
+  return data;
 }
 
 export async function detectIngredients(base64: string): Promise<DetectedIngredient[]> {

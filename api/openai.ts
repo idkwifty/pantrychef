@@ -61,6 +61,10 @@ async function callOpenAI(messages: unknown[], maxTokens: number) {
 }
 
 export default async function handler(req: any, res: any) {
+  if (req.method === "GET") {
+    return res.status(200).json({ ok: true, service: "pantrychef-api" });
+  }
+
   const origin = req.headers.origin as string | undefined;
   const requestHost = String(req.headers["x-forwarded-host"] ?? req.headers.host ?? "").split(",")[0].trim();
   let isSameHost = false;
